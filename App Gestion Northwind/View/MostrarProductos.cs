@@ -34,6 +34,7 @@ namespace App_Gestion_Northwind.View
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            controlProductos.mostrarMenuInicio();
             this.Dispose();
             this.Close();
         }
@@ -104,6 +105,12 @@ namespace App_Gestion_Northwind.View
         }
 
         private void dataGridMostrar_DoubleClick(object sender, EventArgs e)
+        {
+            string id = dataGridMostrar.CurrentRow.Cells[0].Value.ToString();
+            controlProductos.menuEditarProducto(id);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             string id = dataGridMostrar.CurrentRow.Cells[0].Value.ToString();
             controlProductos.menuEditarProducto(id);

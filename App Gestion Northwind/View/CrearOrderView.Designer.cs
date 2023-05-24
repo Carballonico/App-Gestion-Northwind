@@ -284,13 +284,14 @@
             this.dataGridViewMostrarProductos.Size = new System.Drawing.Size(531, 363);
             this.dataGridViewMostrarProductos.TabIndex = 7;
             this.dataGridViewMostrarProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMostrarProductos_CellClick);
+            this.dataGridViewMostrarProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMostrarProductos_CellContentClick);
             this.dataGridViewMostrarProductos.DoubleClick += new System.EventHandler(this.dataGridViewMostrarProductos_DoubleClick);
             // 
             // lblPaso
             // 
             this.lblPaso.AutoSize = true;
             this.lblPaso.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPaso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(100)))), ((int)(((byte)(25)))));
+            this.lblPaso.ForeColor = System.Drawing.Color.White;
             this.lblPaso.Location = new System.Drawing.Point(195, 3);
             this.lblPaso.Name = "lblPaso";
             this.lblPaso.Size = new System.Drawing.Size(213, 30);
@@ -380,7 +381,7 @@
             // 
             this.panelBotTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(96)))), ((int)(((byte)(110)))));
             this.panelBotTicket.Controls.Add(this.lblTotalTicket);
-            this.panelBotTicket.Location = new System.Drawing.Point(47, 365);
+            this.panelBotTicket.Location = new System.Drawing.Point(47, 370);
             this.panelBotTicket.Name = "panelBotTicket";
             this.panelBotTicket.Size = new System.Drawing.Size(524, 34);
             this.panelBotTicket.TabIndex = 12;
@@ -416,18 +417,18 @@
             // 
             this.lblEncabezado.AutoSize = true;
             this.lblEncabezado.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEncabezado.Location = new System.Drawing.Point(107, 123);
+            this.lblEncabezado.Location = new System.Drawing.Point(31, 123);
             this.lblEncabezado.Name = "lblEncabezado";
-            this.lblEncabezado.Size = new System.Drawing.Size(396, 20);
+            this.lblEncabezado.Size = new System.Drawing.Size(467, 20);
             this.lblEncabezado.TabIndex = 7;
-            this.lblEncabezado.Text = "Producto                                                      Cant         Precio" +
-    " ";
+            this.lblEncabezado.Text = "ID            Producto                                                       Cant" +
+    "          Precio ";
             // 
             // lblSeparador2
             // 
             this.lblSeparador2.AutoSize = true;
             this.lblSeparador2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSeparador2.Location = new System.Drawing.Point(57, 28);
+            this.lblSeparador2.Location = new System.Drawing.Point(31, 28);
             this.lblSeparador2.Name = "lblSeparador2";
             this.lblSeparador2.Size = new System.Drawing.Size(447, 20);
             this.lblSeparador2.TabIndex = 6;
@@ -437,7 +438,7 @@
             // 
             this.lblSeparador1.AutoSize = true;
             this.lblSeparador1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSeparador1.Location = new System.Drawing.Point(57, 143);
+            this.lblSeparador1.Location = new System.Drawing.Point(31, 143);
             this.lblSeparador1.Name = "lblSeparador1";
             this.lblSeparador1.Size = new System.Drawing.Size(447, 20);
             this.lblSeparador1.TabIndex = 5;
@@ -447,7 +448,7 @@
             // 
             this.lblCliente.AutoSize = true;
             this.lblCliente.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCliente.Location = new System.Drawing.Point(57, 103);
+            this.lblCliente.Location = new System.Drawing.Point(31, 103);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(62, 20);
             this.lblCliente.TabIndex = 4;
@@ -457,7 +458,7 @@
             // 
             this.lblIDTicket.AutoSize = true;
             this.lblIDTicket.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblIDTicket.Location = new System.Drawing.Point(57, 83);
+            this.lblIDTicket.Location = new System.Drawing.Point(31, 83);
             this.lblIDTicket.Name = "lblIDTicket";
             this.lblIDTicket.Size = new System.Drawing.Size(105, 20);
             this.lblIDTicket.TabIndex = 3;
@@ -467,7 +468,7 @@
             // 
             this.lblLugar.AutoSize = true;
             this.lblLugar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLugar.Location = new System.Drawing.Point(57, 63);
+            this.lblLugar.Location = new System.Drawing.Point(31, 63);
             this.lblLugar.Name = "lblLugar";
             this.lblLugar.Size = new System.Drawing.Size(75, 20);
             this.lblLugar.TabIndex = 2;
@@ -477,7 +478,7 @@
             // 
             this.lblFechaTicket.AutoSize = true;
             this.lblFechaTicket.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFechaTicket.Location = new System.Drawing.Point(58, 43);
+            this.lblFechaTicket.Location = new System.Drawing.Point(32, 43);
             this.lblFechaTicket.Name = "lblFechaTicket";
             this.lblFechaTicket.Size = new System.Drawing.Size(130, 20);
             this.lblFechaTicket.TabIndex = 1;
@@ -488,7 +489,7 @@
             this.lblNorthwind.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNorthwind.AutoSize = true;
             this.lblNorthwind.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNorthwind.Location = new System.Drawing.Point(201, 0);
+            this.lblNorthwind.Location = new System.Drawing.Point(182, 0);
             this.lblNorthwind.Name = "lblNorthwind";
             this.lblNorthwind.Size = new System.Drawing.Size(138, 32);
             this.lblNorthwind.TabIndex = 0;
@@ -523,7 +524,7 @@
             // 
             this.lblFactura.AutoSize = true;
             this.lblFactura.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblFactura.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(100)))), ((int)(((byte)(25)))));
+            this.lblFactura.ForeColor = System.Drawing.Color.White;
             this.lblFactura.Location = new System.Drawing.Point(248, 3);
             this.lblFactura.Name = "lblFactura";
             this.lblFactura.Size = new System.Drawing.Size(143, 30);
@@ -541,6 +542,7 @@
             this.btnConfirmarOrden.TabIndex = 4;
             this.btnConfirmarOrden.Text = "Confirmar";
             this.btnConfirmarOrden.UseVisualStyleBackColor = false;
+            this.btnConfirmarOrden.Click += new System.EventHandler(this.btnConfirmarOrden_Click);
             // 
             // CrearOrderView
             // 

@@ -66,7 +66,6 @@
             // 
             // btnMinimizar
             // 
-            this.btnMinimizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
             this.btnMinimizar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.BackgroundImage")));
             this.btnMinimizar.FlatAppearance.BorderSize = 0;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -77,10 +76,12 @@
             this.btnMinimizar.TabIndex = 26;
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
+            this.btnMinimizar.MouseHover += new System.EventHandler(this.btnMinimizar_MouseHover);
             // 
             // btnCerrar
             // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(26)))), ((int)(((byte)(79)))));
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
@@ -90,6 +91,8 @@
             this.btnCerrar.TabIndex = 24;
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.MouseLeave += new System.EventHandler(this.btnCerrar_MouseLeave);
+            this.btnCerrar.MouseHover += new System.EventHandler(this.btnCerrar_MouseHover);
             // 
             // panel1
             // 

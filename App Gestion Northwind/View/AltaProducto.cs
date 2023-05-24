@@ -530,7 +530,7 @@ namespace App_Gestion_Northwind.View
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Visible = false;
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -571,6 +571,11 @@ namespace App_Gestion_Northwind.View
         private void btnCerrar_MouseLeave(object sender, EventArgs e)
         {
             btnCerrar.BackColor = Color.FromArgb(46, 49, 56);
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void panel2_MouseUp(object sender, MouseEventArgs e)

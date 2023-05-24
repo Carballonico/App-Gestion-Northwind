@@ -47,7 +47,7 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblMes = new System.Windows.Forms.Label();
+            this.lblEmpleado = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,39 +59,40 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Location = new System.Drawing.Point(101, 26);
+            this.pictureBox1.Location = new System.Drawing.Point(60, 2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(206, 187);
+            this.pictureBox1.Size = new System.Drawing.Size(195, 187);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnIzquierda
             // 
+            this.btnIzquierda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(170)))), ((int)(((byte)(157)))));
             this.btnIzquierda.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnIzquierda.FlatAppearance.BorderSize = 0;
             this.btnIzquierda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIzquierda.Image = ((System.Drawing.Image)(resources.GetObject("btnIzquierda.Image")));
             this.btnIzquierda.Location = new System.Drawing.Point(0, 0);
             this.btnIzquierda.Name = "btnIzquierda";
-            this.btnIzquierda.Size = new System.Drawing.Size(61, 241);
+            this.btnIzquierda.Size = new System.Drawing.Size(60, 250);
             this.btnIzquierda.TabIndex = 1;
-            this.btnIzquierda.UseVisualStyleBackColor = true;
+            this.btnIzquierda.UseVisualStyleBackColor = false;
             this.btnIzquierda.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnDerecha
             // 
+            this.btnDerecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(170)))), ((int)(((byte)(157)))));
             this.btnDerecha.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnDerecha.FlatAppearance.BorderSize = 0;
             this.btnDerecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDerecha.Image = ((System.Drawing.Image)(resources.GetObject("btnDerecha.Image")));
-            this.btnDerecha.Location = new System.Drawing.Point(339, 0);
+            this.btnDerecha.Location = new System.Drawing.Point(252, 0);
             this.btnDerecha.Name = "btnDerecha";
-            this.btnDerecha.Size = new System.Drawing.Size(61, 241);
+            this.btnDerecha.Size = new System.Drawing.Size(60, 250);
             this.btnDerecha.TabIndex = 2;
-            this.btnDerecha.UseVisualStyleBackColor = true;
+            this.btnDerecha.UseVisualStyleBackColor = false;
             this.btnDerecha.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
@@ -221,6 +222,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
             this.panel3.Controls.Add(this.lblFecha);
             this.panel3.Controls.Add(this.lblHora);
             this.panel3.Location = new System.Drawing.Point(298, 397);
@@ -244,11 +246,11 @@
             this.lblHora.AutoSize = true;
             this.lblHora.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblHora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(100)))), ((int)(((byte)(25)))));
-            this.lblHora.Location = new System.Drawing.Point(662, 79);
+            this.lblHora.Location = new System.Drawing.Point(658, 81);
             this.lblHora.Name = "lblHora";
             this.lblHora.Size = new System.Drawing.Size(282, 72);
             this.lblHora.TabIndex = 0;
-            this.lblHora.Text = "08:52;45";
+            this.lblHora.Text = "08:52:45";
             // 
             // timer1
             // 
@@ -256,26 +258,27 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(49)))), ((int)(((byte)(56)))));
-            this.panel4.Controls.Add(this.lblMes);
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(111)))), ((int)(((byte)(125)))));
+            this.panel4.Controls.Add(this.lblEmpleado);
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Controls.Add(this.btnIzquierda);
             this.panel4.Controls.Add(this.btnDerecha);
-            this.panel4.Location = new System.Drawing.Point(571, 138);
+            this.panel4.ForeColor = System.Drawing.Color.White;
+            this.panel4.Location = new System.Drawing.Point(620, 90);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(400, 241);
+            this.panel4.Size = new System.Drawing.Size(312, 250);
             this.panel4.TabIndex = 27;
             // 
-            // lblMes
+            // lblEmpleado
             // 
-            this.lblMes.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblMes.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMes.Location = new System.Drawing.Point(61, 216);
-            this.lblMes.Name = "lblMes";
-            this.lblMes.Size = new System.Drawing.Size(278, 25);
-            this.lblMes.TabIndex = 3;
-            this.lblMes.Text = "Empleado";
-            this.lblMes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEmpleado.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblEmpleado.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblEmpleado.Location = new System.Drawing.Point(60, 225);
+            this.lblEmpleado.Name = "lblEmpleado";
+            this.lblEmpleado.Size = new System.Drawing.Size(192, 25);
+            this.lblEmpleado.TabIndex = 3;
+            this.lblEmpleado.Text = "Empleado";
+            this.lblEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Inicio
             // 
@@ -322,7 +325,7 @@
         private System.Windows.Forms.Timer timer1;
         private Label lblFecha;
         private Panel panel4;
-        private Label lblMes;
+        private Label lblEmpleado;
         private Button btnOrdenes;
         private TableLayoutPanel tableLayoutPanel1;
     }

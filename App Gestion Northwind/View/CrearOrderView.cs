@@ -15,8 +15,13 @@ namespace App_Gestion_Northwind.View
     {
         bool moverPanel = false;
         int mX, mY;
-        const string ESPACIO_ANTES_PRODUCTO = "        ";
+        const string ESPACIO_ANTES_PRODUCTO = "    ";
         string fecha = DateTime.Now.ToLongDateString();
+
+        DateTime orderDateTime = DateTime.Now;
+        string orderDate = DateTime.Now.ToString("dd/MM/yyyy");
+        int idOrden = 0;
+        string idCliente = "";
         DataSetNorthWind dsNortwind;
         DataSetResultados dsResultados;
         ControlerOrdenes controlOrdenes;
@@ -40,7 +45,10 @@ namespace App_Gestion_Northwind.View
             panelSeleccionProductos.Visible = false;
             dataGridMostrar.Visible = true;
             panelDetalleProducto.Visible = false;
+            idOrden = controlOrdenes.nOrden();
+            lblIDTicket.Text = "Ticket Nº " + idOrden;
         }
+
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
@@ -49,6 +57,7 @@ namespace App_Gestion_Northwind.View
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            controlOrdenes.mostrarMenuInicio();
             this.Close();
         }
 
@@ -85,8 +94,7 @@ namespace App_Gestion_Northwind.View
         private void btnCerrar_MouseLeave(object sender, EventArgs e)
         {
             btnCerrar.BackColor = Color.FromArgb(46, 49, 56);
-        }
-        string espacioCorrecto = "producto ejemplo                              ";
+        }      
         int cantidadespaciosCorrecto = 46;
 
 
@@ -103,7 +111,9 @@ namespace App_Gestion_Northwind.View
 
         private void auxAgregarClienteClick()
         {
-            lblCliente.Text = "Cliente: " + dataGridMostrar.SelectedCells[0].Value.ToString();
+            
+            idCliente = dataGridMostrar.SelectedCells[0].Value.ToString();           
+            lblCliente.Text = "Cliente: " + idCliente;
            // lblCliente.Text = "Cliente: " + dataGridMostrar.CurrentRow.Cells[0].Value.ToString();
             dataGridMostrar.Visible = false;
             panelSeleccionProductos.Visible = true;
@@ -126,6 +136,7 @@ namespace App_Gestion_Northwind.View
         private void auxClickAgregar()
         {
             cantidadespaciosCorrecto = 40;
+            string idProducto = dataGridViewMostrarProductos.CurrentRow.Cells[0].Value.ToString();
             string formatLinea = dataGridViewMostrarProductos.CurrentRow.Cells[1].Value.ToString();
             int lengt = dataGridViewMostrarProductos.CurrentRow.Cells[1].Value.ToString().Length;
             string formatPrecio = dataGridViewMostrarProductos.CurrentRow.Cells[5].Value.ToString();
@@ -145,7 +156,11 @@ namespace App_Gestion_Northwind.View
                     cantidad += " ";
                 }
             }
-             
+            string espacioEntreIdYNombre = "";
+            for(int u = idProducto.Length;u<3; u++)
+            {
+                espacioEntreIdYNombre += " ";
+            }
             for (int i = lengt; i <= cantidadespaciosCorrecto; i++)
             {
                 formatLinea += " ";
@@ -154,7 +169,7 @@ namespace App_Gestion_Northwind.View
             decimal auxtotal = auxCantidad * precioRedondeado;
             total += auxtotal;
             lblTotalTicket.Text = $"Total: {total}$";
-            listBoxTicket.Items.Add(ESPACIO_ANTES_PRODUCTO + formatLinea + cantidad +"     " +precioRedondeado);
+            listBoxTicket.Items.Add(ESPACIO_ANTES_PRODUCTO + idProducto + espacioEntreIdYNombre + formatLinea + cantidad +"     " +precioRedondeado);
         }
         private void dataGridViewMostrarProductos_DoubleClick(object sender, EventArgs e)
         {
@@ -173,8 +188,9 @@ namespace App_Gestion_Northwind.View
         {
             comboBoxCantidad.Items.Clear();
             bool hayStock = false;          
-            int intStock = int.Parse(dataGridViewMostrarProductos.CurrentRow.Cells[6].Value.ToString());                 
-            if(intStock < 1)
+            int intStock = int.Parse(dataGridViewMostrarProductos.CurrentRow.Cells[6].Value.ToString());
+            lblStock.Text = "Stock: " + dataGridViewMostrarProductos.CurrentRow.Cells[6].Value.ToString();
+            if (intStock < 1)
             {
                 comboBoxCantidad.Text = "0";
                 comboBoxCantidad.Enabled = false;
@@ -208,7 +224,7 @@ namespace App_Gestion_Northwind.View
         private void dataGridViewMostrarProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             auxcomprobarStock();
-            lblStock.Text = "Stock: "+ dataGridViewMostrarProductos.CurrentRow.Cells[6].Value.ToString();                                    
+                                             
         }
 
         private void btnConfirmarDato_Click(object sender, EventArgs e)
@@ -245,16 +261,20 @@ namespace App_Gestion_Northwind.View
 
         private void auxBuscarProducto()
         {
+                      
             int indice = 0;
             foreach (DataRow row in dsNortwind.Products.Rows)
             {
                 if (row[0].ToString() == inputID.Text)
                 {
                     dataGridViewMostrarProductos.Rows[indice].Selected = true;
+                    dataGridViewMostrarProductos.CurrentCell = dataGridViewMostrarProductos.Rows[indice].Cells[2];
                     dataGridViewMostrarProductos.FirstDisplayedScrollingRowIndex = indice;
                 }
                 indice++;
             }
+            auxcomprobarStock();
+
             dataGridViewMostrarProductos.Focus();
         }
 
@@ -275,7 +295,7 @@ namespace App_Gestion_Northwind.View
 
         private void inputID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            auxcomprobarStock();
+           
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 auxBtnBuscarClick();
@@ -316,7 +336,36 @@ namespace App_Gestion_Northwind.View
 
         private void btnEliminarLinea_Click(object sender, EventArgs e)
         {
-            listBoxTicket.Items.Remove(listBoxTicket.SelectedItem);
+            if(listBoxTicket.Items.Count > 0)
+            {
+                string linea = listBoxTicket.SelectedItem.ToString();
+                string[] arrayLinea = linea.Split(" ");
+                listBoxTicket.Items.Remove(listBoxTicket.SelectedItem);
+                lblTotalTicket.Text = arrayLinea[arrayLinea.Length -1];
+            }
+        }
+
+        private void btnConfirmarOrden_Click(object sender, EventArgs e)
+        {
+            List<string> detalleOrden = new List<string>();
+            if (listBoxTicket.Items.Count > 0)
+            {
+                controlOrdenes.altaOrden(idCliente, orderDate);
+                foreach(string str in listBoxTicket.Items)
+                {
+                    detalleOrden.Add(str);
+                }
+                int cantidadDetalles = controlOrdenes.altaDetallesOrden(detalleOrden, idOrden);
+                CustomAlert alerta = new CustomAlert("Se han añadido: " + cantidadDetalles+ " a la tabla detalles");
+                alerta.Show();
+                reiniciarTicket();               
+
+            }
+        }
+
+        private void dataGridViewMostrarProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void panel2_MouseUp(object sender, MouseEventArgs e)

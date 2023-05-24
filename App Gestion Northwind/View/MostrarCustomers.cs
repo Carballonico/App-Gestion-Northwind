@@ -29,6 +29,7 @@ namespace App_Gestion_Northwind.View
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            controlClientes.mostrarMenuInicio();
             this.Dispose();
             this.Close();
         }

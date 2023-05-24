@@ -20,10 +20,12 @@ namespace App_Gestion_Northwind.View
         bool moverPanel = false;
         int mX, mY;
         AppControler controler;
-        public Inicio(object pcontroler)
+        DataSetResultados dsResultados;
+        public Inicio(object pcontroler,DataSetResultados pDsResultados)
         {
             InitializeComponent();
             controler = (AppControler)pcontroler;
+            dsResultados = pDsResultados;
             
         }
         ArrayList arrayPictures = new ArrayList();
@@ -36,39 +38,17 @@ namespace App_Gestion_Northwind.View
             arrayPictures.Add(pictureBox1);        
             int i = 1;
 
-            pictureBox1.Image = cargarFoto(i);
+            pictureBox1.Image = controler.cargarFoto(i);
+            lblEmpleado.Text = dsResultados.Employees[0].FirstName.ToString() + " " + dsResultados.Employees[0].LastName.ToString();
 
             //timer1.Start();
             lblFecha.Text = DateTime.Now.ToLongDateString();
 
         }
 
-        private  Image cargarFoto(int id)
-        {
-            try
-            {
-                
-                string query = $"SELECT Photo FROM Employees WHERE EmployeeID = {id}";
-                SqlCommand command = new SqlCommand(query,controler.Conexion);
-                SqlDataReader reader = command.ExecuteReader();
-                reader.Read();
-                byte[] imageData = (byte[])reader["Photo"];
-                System.Drawing.ImageConverter converter = new System.Drawing.ImageConverter();
-                Image img = (Image)converter.ConvertFrom(imageData);
-                reader.Close();
-                return img;
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            return null;
-        }
+       
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -80,7 +60,8 @@ namespace App_Gestion_Northwind.View
             {
                 i--;
             }
-            pictureBox1.Image = cargarFoto(i);
+            pictureBox1.Image = controler.cargarFoto(i);
+            lblEmpleado.Text = dsResultados.Employees[0].FirstName.ToString() + " " + dsResultados.Employees[0].LastName.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -93,7 +74,8 @@ namespace App_Gestion_Northwind.View
             {
                 i++;
             }
-            pictureBox1.Image = cargarFoto(i);
+            pictureBox1.Image = controler.cargarFoto(i);
+            lblEmpleado.Text = dsResultados.Employees[0].FirstName.ToString() + " " + dsResultados.Employees[0].LastName.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -161,6 +143,8 @@ namespace App_Gestion_Northwind.View
         {
             controler.menuOrdenes();
         }
+
+        
 
         private void panel2_MouseUp(object sender, MouseEventArgs e)
         {

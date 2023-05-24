@@ -52,6 +52,26 @@ namespace App_Gestion_Northwind.View
             
         }
 
+        private void btnMinimizar_MouseHover(object sender, EventArgs e)
+        {
+            btnMinimizar.BackColor = Color.Crimson;
+        }
+
+        private void btnMinimizar_MouseLeave(object sender, EventArgs e)
+        {
+            btnMinimizar.BackColor = Color.FromArgb(46, 49, 56);
+        }
+
+        private void btnCerrar_MouseHover(object sender, EventArgs e)
+        {
+            btnCerrar.BackColor = Color.Crimson;
+        }
+
+        private void btnCerrar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCerrar.BackColor = Color.FromArgb(46, 49, 56);
+        }
+
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
             moverPanel = true;

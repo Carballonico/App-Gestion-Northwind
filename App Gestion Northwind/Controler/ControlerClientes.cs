@@ -16,12 +16,18 @@ namespace App_Gestion_Northwind.Controler
         DataSetResultados dsResultados;
         DataSetNorthWind dsNorthwind;
         AltaCustomer menuCustomersView;
-        public ControlerClientes(SqlConnection pconexion, DataSetResultados pdsResultados, DataSetNorthWind pdsNorthwind)
+        AppControler appControler;
+        public ControlerClientes(SqlConnection pconexion, DataSetResultados pdsResultados, DataSetNorthWind pdsNorthwind,object pAppControler)
         {
             this.conexion = pconexion;
             this.dsResultados = pdsResultados;
             this.dsNorthwind = pdsNorthwind;
             menuCustomersView = new AltaCustomer(this, dsResultados, dsNorthwind);
+            appControler = (AppControler)pAppControler;
+        }
+        public void mostrarMenuInicio()
+        {
+            appControler.mostrarMenuInicio();
         }
         public void menu()
         {
