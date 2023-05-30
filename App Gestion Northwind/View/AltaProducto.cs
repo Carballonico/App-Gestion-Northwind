@@ -228,10 +228,8 @@ namespace App_Gestion_Northwind.View
                         inputReorderLevel.Text = "";
                     }
                     inputDiscontinued.Checked = dsResultados.Products[0].Discontinued;
-                    btnModificar.Enabled = true;
-                    Eliminar.Enabled = true;
-                    btnModificar.BackColor = Color.FromArgb(141, 170, 157);
-                    Eliminar.BackColor = Color.FromArgb(141, 170, 157);
+                    btnModificar.Enabled = true;                 
+                    btnModificar.BackColor = Color.FromArgb(141, 170, 157);                   
                 }
                 else
                 {
@@ -240,9 +238,7 @@ namespace App_Gestion_Northwind.View
                     activarInputs(false);
                     inputID.Enabled = true;
                     inputID.BackColor = Color.White;
-                    btnModificar.Enabled = false;
-                    Eliminar.Enabled = false;
-                    Eliminar.BackColor = Color.DarkGray;
+                    btnModificar.Enabled = false;                
                     btnModificar.BackColor = Color.DarkGray;
                 }
             }
@@ -253,9 +249,7 @@ namespace App_Gestion_Northwind.View
                 alert.Show();
                 inputID.Enabled = true;
                 inputID.BackColor = Color.White;
-                btnModificar.Enabled = false;
-                Eliminar.Enabled = false;
-                Eliminar.BackColor = Color.DarkGray;
+                btnModificar.Enabled = false;             
                 btnModificar.BackColor = Color.DarkGray;
             }
             else if (clicks > 1)
@@ -575,7 +569,51 @@ namespace App_Gestion_Northwind.View
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+            arrayAnimators.Clear();
+            reiniciarClicks(FNMODIFICAR);
+            activarInputs(true);
+            if (inputID.Text != null & inputID.Text != "")
+            {
+                if (inputProductName.Text != null & inputProductName.Text != "")
+                {
+                    bool existe = controlProductos.comprobarIDExiste(int.Parse(inputID.Text));
+                    if (existe)
+                    {
+                        string values = $"ProductName = '{inputProductName.Text.Replace("'"," ")}',SupplierID = {inputSupplierID.Text},CategoryID = {inputCategoryID.Text},QuantityPerUnit = '{inputQuantityPerUnit.Text}',UnitPrice = {inputUnitPrice.Text},UnitsInStock = {inputUnitsInStock.Text},UnitsOnOrder = {inputUnitsOnOrder.Text},ReorderLevel = {inputReorderLevel.Text},";
+                        if (inputDiscontinued.Checked)
+                        {
+                            values += "Discontinued = 1";
+                        }
+                        else
+                        {
+                            values += "Discontinued = 0";
+                        }
+                        int resultado = controlProductos.modificarCustomer(values, inputID.Text);
+                        if (resultado > 0)
+                        {
+                            CustomAlert alert = new CustomAlert("Cliente modificado correctamente");
+                            alert.Show();
+                            limpiarInputs();
+                        }
+                    }
+                    else
+                    {
+                        CustomAlert alert = new CustomAlert("No se encontro un cliente bajo ese ID!");
+                        alert.Show();
+                    }
+                }
+            }
+            else if (clicks == 1)
+            {
+                CustomAlert alert = new CustomAlert("El campo ID es obligatorio!");
+                alert.Show();
+            }
+            else if (clicks > 1)
+            {
+                arrayAnimators.Add(inputID);
+                timerAnimationID.Interval = 200;
+                timerAnimationID.Start();
+            }
         }
 
         private void panel2_MouseUp(object sender, MouseEventArgs e)

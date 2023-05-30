@@ -21,7 +21,6 @@ namespace App_Gestion_Northwind
             DataSetResultados dsResultados = new DataSetResultados();
             AppControler controler = new AppControler(conexion, dsResultados, dsNorthwind);
            
-
         }
     }
 }

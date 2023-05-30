@@ -17,7 +17,7 @@ namespace App_Gestion_Northwind.View
         int mX, mY;
         const string ESPACIO_ANTES_PRODUCTO = "    ";
         string fecha = DateTime.Now.ToLongDateString();
-
+        List<decimal> listTotal = new List<decimal>();
         DateTime orderDateTime = DateTime.Now;
         string orderDate = DateTime.Now.ToString("dd/MM/yyyy");
         int idOrden = 0;
@@ -164,12 +164,9 @@ namespace App_Gestion_Northwind.View
             for (int i = lengt; i <= cantidadespaciosCorrecto; i++)
             {
                 formatLinea += " ";
-            }
-            decimal auxCantidad = decimal.Parse(cantidad.Trim());
-            decimal auxtotal = auxCantidad * precioRedondeado;
-            total += auxtotal;
-            lblTotalTicket.Text = $"Total: {total}$";
+            }        
             listBoxTicket.Items.Add(ESPACIO_ANTES_PRODUCTO + idProducto + espacioEntreIdYNombre + formatLinea + cantidad +"     " +precioRedondeado);
+            actualizarTotal();
         }
         private void dataGridViewMostrarProductos_DoubleClick(object sender, EventArgs e)
         {
@@ -241,7 +238,8 @@ namespace App_Gestion_Northwind.View
                     auxClickAgregar();
                     inputID.Text = "";
                 }
-            }                        
+            }
+           
         }
 
         private void auxBuscarCliente()
@@ -334,15 +332,34 @@ namespace App_Gestion_Northwind.View
             }
         }
 
+        private void actualizarTotal()
+        {
+            decimal decimalTotal = 0m;
+            listTotal.Clear();
+            if(listBoxTicket.Items.Count > 0)
+            {
+                foreach (string linea in listBoxTicket.Items)
+                {
+                    string[] arraylinea = linea.Split(" ");
+                    string[] auxlinea = arraylinea.Where(d => !d.Equals("")).ToArray();
+                    decimal auxtotal = decimal.Parse(auxlinea[auxlinea.Length - 1]) * decimal.Parse(auxlinea[auxlinea.Length - 2]);
+                    listTotal.Add(auxtotal);
+                }
+            }
+            foreach(decimal deci in listTotal)
+            {
+                decimalTotal += deci;
+            }
+            lblTotalTicket.Text = "Total: "+decimalTotal.ToString() +"$";
+
+        }
         private void btnEliminarLinea_Click(object sender, EventArgs e)
         {
             if(listBoxTicket.Items.Count > 0)
-            {
-                string linea = listBoxTicket.SelectedItem.ToString();
-                string[] arrayLinea = linea.Split(" ");
-                listBoxTicket.Items.Remove(listBoxTicket.SelectedItem);
-                lblTotalTicket.Text = arrayLinea[arrayLinea.Length -1];
+            {                
+                listBoxTicket.Items.Remove(listBoxTicket.SelectedItem);              
             }
+            actualizarTotal();
         }
 
         private void btnConfirmarOrden_Click(object sender, EventArgs e)

@@ -399,7 +399,7 @@ namespace App_Gestion_Northwind.View
                     bool existe = controlerClientes.comprobarIDExiste(inputID.Text.ToUpper());
                     if (existe)
                     {
-                        string values = $"CustomerID = '{inputID.Text.ToUpper()}',CompanyName = '{inputCompanyName.Text}',ContactName = '{inputContactName.Text}',ContactTitle = '{inputContactTitle.Text}',Address = '{inputAddress.Text}',City = '{inputCity.Text}',Region = '{inputRegion.Text}',PostalCode = '{inputPostalCode.Text}',Country = '{inputCountry.Text}',Phone = '{inputPhone.Text}',Fax = '{inputFax.Text}'";
+                        string values = $"CustomerID = '{inputID.Text.ToUpper()}',CompanyName = '{inputCompanyName.Text.Replace("'", " ")}',ContactName = '{inputContactName.Text}',ContactTitle = '{inputContactTitle.Text}',Address = '{inputAddress.Text}',City = '{inputCity.Text}',Region = '{inputRegion.Text}',PostalCode = '{inputPostalCode.Text}',Country = '{inputCountry.Text}',Phone = '{inputPhone.Text}',Fax = '{inputFax.Text}'";
                         int resultado = controlerClientes.modificarCustomer(values, inputID.Text.ToUpper());
                         if (resultado > 0)
                         {

@@ -62,7 +62,6 @@
             this.btnAltaCustomer = new System.Windows.Forms.Button();
             this.btnBuscarCustomer = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.Eliminar = new System.Windows.Forms.Button();
             this.timerAnimationID = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -382,15 +381,13 @@
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(111)))), ((int)(((byte)(125)))));
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.btnModificar, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.btnAltaCustomer, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnBuscarCustomer, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.Eliminar, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btnModificar, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 0, 3);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -405,7 +402,7 @@
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(170)))), ((int)(((byte)(157)))));
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Location = new System.Drawing.Point(3, 356);
+            this.btnModificar.Location = new System.Drawing.Point(3, 317);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(125, 51);
             this.btnModificar.TabIndex = 24;
@@ -419,7 +416,7 @@
             this.btnAltaCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(170)))), ((int)(((byte)(157)))));
             this.btnAltaCustomer.FlatAppearance.BorderSize = 0;
             this.btnAltaCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAltaCustomer.Location = new System.Drawing.Point(3, 138);
+            this.btnAltaCustomer.Location = new System.Drawing.Point(3, 180);
             this.btnAltaCustomer.Name = "btnAltaCustomer";
             this.btnAltaCustomer.Size = new System.Drawing.Size(125, 51);
             this.btnAltaCustomer.TabIndex = 26;
@@ -433,7 +430,7 @@
             this.btnBuscarCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(170)))), ((int)(((byte)(157)))));
             this.btnBuscarCustomer.FlatAppearance.BorderSize = 0;
             this.btnBuscarCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCustomer.Location = new System.Drawing.Point(3, 29);
+            this.btnBuscarCustomer.Location = new System.Drawing.Point(3, 43);
             this.btnBuscarCustomer.Name = "btnBuscarCustomer";
             this.btnBuscarCustomer.Size = new System.Drawing.Size(125, 51);
             this.btnBuscarCustomer.TabIndex = 25;
@@ -447,26 +444,13 @@
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(170)))), ((int)(((byte)(157)))));
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Location = new System.Drawing.Point(3, 466);
+            this.btnCancelar.Location = new System.Drawing.Point(3, 454);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(125, 51);
             this.btnCancelar.TabIndex = 24;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(170)))), ((int)(((byte)(157)))));
-            this.Eliminar.FlatAppearance.BorderSize = 0;
-            this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Eliminar.Location = new System.Drawing.Point(3, 247);
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Size = new System.Drawing.Size(125, 51);
-            this.Eliminar.TabIndex = 23;
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.UseVisualStyleBackColor = false;
             // 
             // timerAnimationID
             // 
@@ -529,7 +513,6 @@
         private Button btnAltaCustomer;
         private Button btnBuscarCustomer;
         private Button btnCancelar;
-        private Button Eliminar;
         private CheckBox inputDiscontinued;
         private System.Windows.Forms.Timer timerAnimationID;
     }

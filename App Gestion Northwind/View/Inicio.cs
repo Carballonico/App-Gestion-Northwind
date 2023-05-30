@@ -37,11 +37,9 @@ namespace App_Gestion_Northwind.View
         {
             arrayPictures.Add(pictureBox1);        
             int i = 1;
-
             pictureBox1.Image = controler.cargarFoto(i);
             lblEmpleado.Text = dsResultados.Employees[0].FirstName.ToString() + " " + dsResultados.Employees[0].LastName.ToString();
-
-            //timer1.Start();
+            timer1.Start();
             lblFecha.Text = DateTime.Now.ToLongDateString();
 
         }

@@ -57,15 +57,7 @@ namespace App_Gestion_Northwind.Controler
                 string nombreProdu = "";
                 string cantidad = "";
                 string precio = "";
-                string[] arrDetalle = detalle.Split(" ");
-                /*
-                foreach(string item in arrDetalle)
-                {
-                    if (!item.Equals(""))
-                    {
-                        datos.Add(item);
-                    }
-                */
+                string[] arrDetalle = detalle.Split(" ");           
                 string[] auxdetalle = arrDetalle.Where(d => !d.Equals("")).ToArray();
                 int indice = 0;                
                 foreach(string auxdeta in auxdetalle)
@@ -115,24 +107,7 @@ namespace App_Gestion_Northwind.Controler
                 {
                     cantidadDetalles++;
                 }
-                /*
-                    categoriesAdapter.SelectCommand.Parameters.Add(
-                    "@CategoryName", SqlDbType.VarChar, 80).Value = "toasters";
-                    categoriesAdapter.SelectCommand.Parameters.Add(
-                    "@SerialNum", SqlDbType.Int).Value = 239;
-                    categoriesAdapter.Fill(categoriesDataSet);
-
-                    command.CommandText =
-                    "INSERT INTO Region (RegionID, RegionDescription) " +
-                    "VALUES (@id, @desc)";
-                    SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int, 0);
-                    SqlParameter descParam =
-                    new SqlParameter("@desc", SqlDbType.Text, 100);
-                    idParam.Value = 20;
-                    descParam.Value = "First Region";
-                    command.Parameters.Add(idParam);
-                    command.Parameters.Add(descParam);
-                 */
+              
             }
             appControler.actualizarDatosNorthwind();
             return cantidadDetalles;

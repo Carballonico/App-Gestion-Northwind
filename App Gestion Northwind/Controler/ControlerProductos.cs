@@ -67,6 +67,13 @@ namespace App_Gestion_Northwind.Controler
 
             return IDExiste;
         }
+        public int modificarCustomer(string values, string id)
+        {
+            string query = $"update Products set {values} where ProductID = '{id}'";
+            SqlCommand comando = new SqlCommand(query, conexion);
+            int rows = comando.ExecuteNonQuery();
+            return rows;
+        }
 
         public bool comprobarSupplierID(int ID)
         {
